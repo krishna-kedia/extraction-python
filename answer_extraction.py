@@ -100,4 +100,4 @@ if __name__ == "__main__":
 
         asyncio.run(test_summary())
     else:
-        uvicorn.run("answer_extraction:app", host="localhost", port=int(os.getenv("PORT", 4000)), reload=True)
+        uvicorn.run("answer_extraction:app", host="0.0.0.0", port=os.getenv("PORT", 4000), reload=os.getenv("env") != "production")
